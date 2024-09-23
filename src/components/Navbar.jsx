@@ -1,17 +1,12 @@
 import React from 'react';
 
-const Navbar = () => {
+const Navbar = ({ isScrolled }) => {
   return (
-    <nav className="bg-gray-800 p-4">
-      <div className="container mx-auto flex justify-between">
-        <div className="text-white font-bold">Umecom</div>
-        <div className="hidden md:flex space-x-4">
-          <a href="#about" className="text-gray-300 hover:text-white">About</a>
-          <a href="#usecases" className="text-gray-300 hover:text-white">Use Cases</a>
-          <a href="#team" className="text-gray-300 hover:text-white">Team</a>
-          <a href="#contact" className="text-gray-300 hover:text-white">Contact</a>
-        </div>
-      </div>
+    <nav id="navLinks" className="hidden md:flex space-x-16">
+      <a href="#home" className={`nav-link ${isScrolled ? 'text-black' : 'text-white'}`}>Home</a>
+      <a href="#cases" className={`nav-link ${isScrolled ? 'text-black' : 'text-white'}`}>Cases</a>
+      <a href="#team" className={`nav-link ${isScrolled ? 'text-black' : 'text-white'}`}>Team</a>
+      <a href="#contact" className={`nav-link ${isScrolled ? 'text-black' : 'text-white'}`}>Contact us</a>
     </nav>
   );
 };

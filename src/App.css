@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700;800&family=Roboto:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, .modal-title, #getStartedBtn, #contact h2, #incentive a, #submitBtn {
+    font-family: 'Epilogue', sans-serif;
+}

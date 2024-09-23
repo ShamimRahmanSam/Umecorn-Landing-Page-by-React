@@ -1,28 +1,40 @@
-import React from 'react';
-import Navbar from './components/Navbar';
+import React, { useEffect } from 'react';
+import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import UseCasesSection from './components/UseCasesSection';
-import HowCanHelpSection from './components/HowCanHelpSection';
+import HowCanHelpSectionLg from './components/HowCanHelpSectionLg';
+import HowCanHelpSectionSm from './components/HowCanHelpSectionSm';
 import IncentiveSection from './components/IncentiveSection';
 import TeamSection from './components/TeamSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    // Set the body class
+    document.body.classList.add('scroll-smooth', 'bg-white', 'text-black');
+
+    // Cleanup function to remove classes on unmount
+    return () => {
+      document.body.classList.remove('scroll-smooth', 'bg-white', 'text-black');
+    };
+  }, []);
+
   return (
     <div className="App">
-      <Navbar />
+      <Header />
       <HeroSection />
       <AboutSection />
       <UseCasesSection />
-      <HowCanHelpSection />
+      <HowCanHelpSectionLg />
+      <HowCanHelpSectionSm />
       <IncentiveSection />
       <TeamSection />
       <ContactSection />
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
