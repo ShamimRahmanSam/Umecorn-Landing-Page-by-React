@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar'; 
-import MobileMenu from './MobileMenu'; 
+import Navbar from './Navbar';
+import MobileMenu from './MobileMenu';
 import defaultLogo from '../../assets/header/Logo-Generic.svg';
-import secondLogoPath from '../../assets/header/Logo-Generic-2.svg'; 
+import secondLogoPath from '../../assets/header/Logo-Generic-2.svg';
 import menuIcon from '../../assets/header/menu.svg';
-import closeIcon from '../../assets/closeButton/close.svg'; 
+import closeIcon from '../../assets/closeButton/close.svg';
 import menu2IconPath from '../../assets/header/menu-2.svg';
 
 const Header = () => {
@@ -18,33 +18,47 @@ const Header = () => {
     if (window.scrollY > 0) {
       setIsScrolled(true);
       setTopBtnColor('#f7f7f7');
-      setLogo(secondLogoPath); 
+      setLogo(secondLogoPath);
       setBurgerIcon(menu2IconPath);
     } else {
       setIsScrolled(false);
       setTopBtnColor('#2F45FF');
-      setLogo(defaultLogo); 
-      setBurgerIcon(menuIcon); 
+      setLogo(defaultLogo);
+      setBurgerIcon(menuIcon);
     }
   };
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => !prev);
+    setIsMobileMenuOpen((prev) => {
+      if (!prev) {
+        document.body.classList.add('no-scroll'); // Disable scrolling
+      } else {
+        document.body.classList.remove('no-scroll'); // Enable scrolling
+      }
+      return !prev;
+    });
   };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      document.body.classList.remove('no-scroll'); // Clean up on unmount
     };
-  }, []); 
-  
+  }, []);
+
   return (
     <header
       id="mainHeader"
       className={`fixed w-full top-0 left-0 z-50 py-4 md:py-3 lg:py-4 2xl:py-6 px-3 2xl:px-44 text-white transition-all duration-300 ${
-        isScrolled ? 'bg-white text-black border-b border-gray-300' : 'border-transparent'
+        isScrolled || isMobileMenuOpen
+          ? 'bg-white text-black'
+          : 'bg-transparent text-white'
+      } ${
+        isScrolled || (isMobileMenuOpen && window.innerWidth <= 768)
+          ? 'border-b border-gray-300'
+          : 'border-transparent'
       }`}
     >
       <div className="flex justify-between items-center">
@@ -60,7 +74,11 @@ const Header = () => {
         <Navbar isScrolled={isScrolled} />
 
         <div className="flex items-center space-x-4 md:px-8">
-          <a className={`hidden md:block font-bold py-4 px-4 rounded-lg text-sm ${isScrolled ? 'bg-[#2F45FF] text-white' : 'bg-white text-[#2F45FF]'}`}>
+          <a
+            className={`hidden md:block font-bold py-4 px-4 rounded-lg text-sm ${
+              isScrolled ? 'bg-[#2F45FF] text-white' : 'bg-white text-[#2F45FF]'
+            }`}
+          >
             Get Started
           </a>
           <div
@@ -76,11 +94,12 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      <MobileMenu 
-        isOpen={isMobileMenuOpen} 
-        toggleMenu={toggleMobileMenu} 
-        logo={logo} 
-        closeIcon={closeIcon} // Pass closeIcon to MobileMenu
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        toggleMenu={toggleMobileMenu}
+        logo={logo}
+        closeIcon={closeIcon}
+        isScrolled={isScrolled}
       />
     </header>
   );
