@@ -7,7 +7,7 @@ import HowCanHelpSectionLg from './components/HowCanHelpSectionLg';
 import HowCanHelpSectionSm from './components/HowCanHelpSectionSm';
 import IncentiveSection from './components/IncentiveSection';
 import TeamSection from './components/TeamSection';
-import ContactSection from './components/ContactSection';
+import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
       <HowCanHelpSectionSm />
       <IncentiveSection />
       <TeamSection />
-      <ContactSection />
+      <ContactUs />
       <Footer />
     </div>
   );

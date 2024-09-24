@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 py-8 text-gray-300">
-      <div className="max-w-screen-lg mx-auto text-center">
-        <p>&copy; 2024 Umecom. All rights reserved.</p>
+    <footer className="py-4 bg-[#F7F7F7] lg:py-6">
+      <div className="text-center text-[#13131A] text-xs md:text-sm">
+        Copyright © 2024 Umecorn. All rights reserved.
       </div>
     </footer>
   );
