@@ -1,9 +1,9 @@
 import React from 'react';
-import image1 from '../assets/help image 1.png';
-import image2 from '../assets/help image 2.png';
-import image3 from '../assets/help image 3.png';
-import image4 from '../assets/help image 4.png';
-import arrowImage from '../assets/arrow-right.svg';
+import image1 from '../../assets/howCanHelp/help image 1.png';
+import image2 from '../../assets/howCanHelp/help image 2.png';
+import image3 from '../../assets/howCanHelp/help image 3.png';
+import image4 from '../../assets/howCanHelp/help image 4.png';
+import arrowImage from '../../assets/howCanHelp/arrow-right.svg';
 
 const HelpSectionSm = () => {
   const helpItems = [

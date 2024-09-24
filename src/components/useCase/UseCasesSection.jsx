@@ -1,7 +1,7 @@
 import React from 'react';
-import icon1 from '../assets/Colored Icon 1.svg';
-import icon2 from '../assets/Colored Icon 2.svg';
-import icon3 from '../assets/Colored Icon 3.svg';
+import icon1 from '../../assets/useCase/Colored Icon 1.svg';
+import icon2 from '../../assets/useCase/Colored Icon 2.svg';
+import icon3 from '../../assets/useCase/Colored Icon 3.svg';
 
 const useCases = [
   {

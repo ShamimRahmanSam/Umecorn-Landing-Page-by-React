@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import UseCasesSection from './components/UseCasesSection';
-import HowCanHelpSectionLg from './components/HowCanHelpSectionLg';
-import HowCanHelpSectionSm from './components/HowCanHelpSectionSm';
-import IncentiveSection from './components/IncentiveSection';
-import TeamSection from './components/TeamSection';
-import ContactUs from './components/ContactUs';
-import Footer from './components/Footer';
+import Header from './components/header/Header';
+import HeroSection from './components/heroSection/HeroSection';
+import AboutSection from './components/about/AboutSection';
+import UseCasesSection from './components/useCase/UseCasesSection';
+import HowCanHelpSectionLg from './components/howCanhelp/HowCanHelpSectionLg';
+import HowCanHelpSectionSm from './components/howCanhelp/HowCanHelpSectionSm';
+import IncentiveSection from './components/incentive/IncentiveSection';
+import TeamSection from './components/team/TeamSection';
+import ContactUs from './components/contact/ContactUs';
+import Footer from './components/footer/Footer';
 
 const App = () => {
   useEffect(() => {

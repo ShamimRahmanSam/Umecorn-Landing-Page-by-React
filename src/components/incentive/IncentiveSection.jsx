@@ -1,5 +1,5 @@
 import React from 'react';
-import incentiveImage from '../assets/incentive.svg'; // Make sure this path is correct based on your file structure
+import incentiveImage from '../../assets/incentive/incentive.svg'; // Make sure this path is correct based on your file structure
 
 const IncentiveSection = () => {
   return (

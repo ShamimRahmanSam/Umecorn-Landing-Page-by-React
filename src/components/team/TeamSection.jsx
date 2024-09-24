@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Modal from './Modal'; 
-import jordanImage from '../assets/jordan.png';
-import anowarImage from '../assets/anwar bhai.png';
-import ianImage from '../assets/lan.png';
-import prashantImage from '../assets/kumar.png';
-import drImage from '../assets/dr.png';
-import faisalImage from '../assets/faisal bhai.png';
-import dawnImage from '../assets/dawn.png';
-import justinImage from '../assets/justin.png';
+import jordanImage from '../../assets/team/jordan.png';
+import anowarImage from '../../assets/team/anwar bhai.png';
+import ianImage from '../../assets/team/lan.png';
+import prashantImage from '../../assets/team/kumar.png';
+import drImage from '../../assets/team/dr.png';
+import faisalImage from '../../assets/team/faisal bhai.png';
+import dawnImage from '../../assets/team/dawn.png';
+import justinImage from '../../assets/team/justin.png';
 
 const teamMembers = [
   {

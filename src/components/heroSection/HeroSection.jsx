@@ -1,6 +1,6 @@
 import React from 'react';
-import heroImage from '../assets/heroImage.png'; // Adjust the path as necessary
-import curveImage from '../assets/Curve.svg'; // Adjust the path as necessary
+import heroImage from '../../assets/hero/heroImage.png'; 
+import curveImage from '../../assets/hero/Curve.svg'; 
 
 const HeroSection = () => {
   return (

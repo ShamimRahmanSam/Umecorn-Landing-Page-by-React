@@ -1,10 +1,10 @@
 import React from 'react';
-import img1 from '../assets/help image 1.png';
-import img2 from '../assets/help image 2.png';
-import img3 from '../assets/help image 3.png';
-import img4 from '../assets/help image 4.png';
-import overlayImg from '../assets/Black - Overlay.svg';
-import arrowImg from '../assets/arrow-right 2.svg';
+import img1 from '../../assets/howCanHelp/help image 1.png';
+import img2 from '../../assets/howCanHelp/help image 2.png';
+import img3 from '../../assets/howCanHelp/help image 3.png';
+import img4 from '../../assets/howCanHelp/help image 4.png';
+import overlayImg from '../../assets/howCanHelp/Black - Overlay.svg';
+import arrowImg from '../../assets/howCanHelp/arrow-right 2.svg';
 
 const helpCases = [
   {

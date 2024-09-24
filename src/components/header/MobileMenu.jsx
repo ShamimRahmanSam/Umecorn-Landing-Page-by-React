@@ -1,5 +1,5 @@
 import React from 'react';
-import closeIcon from '../assets/close.svg'; // Adjust the path as necessary
+import closeIcon from '../../assets/closeButton/close.svg'; // Adjust the path as necessary
 
 const MobileMenu = ({ isOpen, toggleMenu, logo }) => {
   return (
