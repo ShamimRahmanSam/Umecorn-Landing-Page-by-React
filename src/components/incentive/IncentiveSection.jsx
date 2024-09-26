@@ -17,18 +17,18 @@ const IncentiveSection = () => {
         </div>
 
         <div className="flex-grow">
-          <h2 className="text-blue-500 font-bold text-base md:text-lg lg:text-xl 2xl:text-2xl mb-2 lg:mb-4">Umecorn Incentive</h2>
+          <h2 className="text-blue-500 font-bold sm:text-base md:text-lg lg:text-xl 2xl:text-2xl mb-2 lg:mb-4">Umecorn Incentive</h2>
 
           <h1 className="mb-2 text-[#00000A] font-bold 2xl:font-extrabold text-2xl md:text-3xl lg:text-[36px] 2xl:text-5xl lg:mb-4">
             Generate your Umecorn Social Score exclusively with us and receive benefits
           </h1>
 
-          <p className="text-[#212126] text-base md:text-lg lg:text-xl 2xl:text-2xl mb-5 md:text-lg lg:mb-6">
+          <p className="text-[#212126] sm:text-base md:text-lg lg:text-xl 2xl:text-2xl mb-5 md:text-lg lg:mb-6">
             Umecorn aims to build the largest Social Scoring platform on the globe. To do that, it needs you. The more
             people and organisations that use our platform, the better we can optimise our tools with our Data team. The
             better we can optimise our tools, the more value we can add to job candidates and loan applicants all over
-            the world. We want you to only use Umecron for your Social Score and Referencing. As such, if you sign up
-            with us and do so exclusively, you form part of the Umecron Benefit pool where we allocate 20% of the
+            the world. We want you to only use Umecorn for your Social Score and Referencing. As such, if you sign up
+            with us and do so exclusively, you form part of the Umecorn Benefit pool where we allocate 20% of the
             company’s profits. These profits are then paid out to the benefit pool OR the payments can be forgone, and
             the profits sent to a charity of your choice.
           </p>

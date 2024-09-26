@@ -31,9 +31,9 @@ const Header = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => {
       if (!prev) {
-        document.body.classList.add('no-scroll'); // Disable scrolling
+        document.body.classList.add('no-scroll');
       } else {
-        document.body.classList.remove('no-scroll'); // Enable scrolling
+        document.body.classList.remove('no-scroll'); 
       }
       return !prev;
     });
@@ -44,7 +44,7 @@ const Header = () => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.body.classList.remove('no-scroll'); // Clean up on unmount
+      document.body.classList.remove('no-scroll'); 
     };
   }, []);
 
@@ -93,7 +93,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      
       <MobileMenu
         isOpen={isMobileMenuOpen}
         toggleMenu={toggleMobileMenu}
