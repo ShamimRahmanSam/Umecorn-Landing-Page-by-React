@@ -29,7 +29,6 @@ const helpCases = [
   },
 ];
 
-
 const HelpSection = () => {
   return (
     <section className="lg:py-20 bg-white hidden lg:block">
@@ -43,22 +42,25 @@ const HelpSection = () => {
         <div className="grid grid-cols-12 lg:gap-5 2xl:gap-8">
           {helpCases.map((helpCase, index) => {
             const colSpan = index === 1 || index === 2 ? 'lg:col-span-5' : 'lg:col-span-7';
+            const translateY = index === 1 || index === 2
+              ? 'lg:group-hover:translate-y-[-9.5rem] 2xl:group-hover:translate-y-[-8rem]'
+              : 'lg:group-hover:translate-y-[-8rem] 2xl:group-hover:translate-y-[-6.5rem]';
             return (
               <div
                 key={index}
-                className={`col-span-12 ${colSpan} bg-white rounded-lg relative group overflow-hidden`} // Added overflow-hidden
+                className={`col-span-12 ${colSpan} bg-white rounded-lg relative group overflow-hidden`}
               >
                 <div className="w-full object-cover rounded-t-lg mb-3 lg:h-full relative">
                   <img src={helpCase.imgSrc} alt={helpCase.title} className="w-full object-cover rounded-t-lg lg:h-full" />
                   <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent rounded-b-lg transition-all duration-500 ease-in-out group-hover:opacity-0"></div>
                 </div>
-                <div className="absolute inset-0 flex flex-col justify-end rounded-lg overflow-hidden"> {/* Added overflow-hidden */}
+                <div className="absolute inset-0 flex flex-col justify-end rounded-lg overflow-hidden">
                   <div className="absolute inset-0 rounded-lg transition-all duration-500 ease-in-out bg-transparent group-hover:bg-black group-hover:bg-opacity-50"></div>
                   <img src={overlayImg} alt="black overlay on image" className="lg:w-1 max-w-full" />
-                  <h3 className="text-xl font-bold text-white mb-4 px-6 relative transition-all duration-500 ease-in-out group-hover:translate-y-[-8rem]">
+                  <h3 className={`text-xl font-bold text-white mb-4 px-6 relative transition-all duration-500 ease-in-out ${translateY}`}>
                     {helpCase.title}
                   </h3>
-                  <div className="absolute bottom-0 w-full py-6 px-6 flex flex-col transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0 group-hover:opacity-100 opacity-0"> {/* Adjusted translate-y-full */}
+                  <div className="absolute bottom-0 w-full py-6 px-6 flex flex-col transition-all duration-500 ease-in-out transform translate-y-full group-hover:translate-y-0 group-hover:opacity-100 opacity-0">
                     <p className="text-white mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                       {helpCase.description}
                     </p>

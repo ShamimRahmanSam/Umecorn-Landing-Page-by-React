@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import MobileMenu from './MobileMenu';
 import defaultLogo from '../../assets/header/Logo-Generic.svg';
@@ -13,6 +13,36 @@ const Header = () => {
   const [logo, setLogo] = useState(defaultLogo);
   const [burgerIcon, setBurgerIcon] = useState(menuIcon);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+
+  useEffect(() => {
+    const smoothScrollHandler = (event) => {
+      if (event.target.tagName === 'A' && event.target.getAttribute('href').startsWith('#')) {
+        event.preventDefault();
+        const targetId = event.target.getAttribute('href').slice(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 80; 
+
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth',
+          });
+        }
+      }
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener('click', smoothScrollHandler);
+    });
+
+    return () => {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.removeEventListener('click', smoothScrollHandler);
+      });
+    };
+  }, []);
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -33,7 +63,7 @@ const Header = () => {
       if (!prev) {
         document.body.classList.add('no-scroll');
       } else {
-        document.body.classList.remove('no-scroll'); 
+        document.body.classList.remove('no-scroll');
       }
       return !prev;
     });
@@ -44,7 +74,7 @@ const Header = () => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.body.classList.remove('no-scroll'); 
+      document.body.classList.remove('no-scroll');
     };
   }, []);
 
@@ -52,14 +82,8 @@ const Header = () => {
     <header
       id="mainHeader"
       className={`fixed w-full top-0 left-0 z-50 py-4 md:py-3 lg:py-4 2xl:py-6 px-3 2xl:px-44 text-white transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen
-          ? 'bg-white text-black'
-          : 'bg-transparent text-white'
-      } ${
-        isScrolled || (isMobileMenuOpen && window.innerWidth <= 768)
-          ? 'border-b border-gray-300'
-          : 'border-transparent'
-      }`}
+        isScrolled || isMobileMenuOpen ? 'bg-white text-black' : 'bg-transparent text-white'
+      } ${isScrolled || (isMobileMenuOpen && window.innerWidth <= 768) ? 'border-b border-gray-300' : 'border-transparent'}`}
     >
       <div className="flex justify-between items-center">
         <div className="flex items-center">
@@ -93,7 +117,6 @@ const Header = () => {
         </div>
       </div>
 
-      
       <MobileMenu
         isOpen={isMobileMenuOpen}
         toggleMenu={toggleMobileMenu}
