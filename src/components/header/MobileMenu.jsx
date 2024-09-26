@@ -5,7 +5,7 @@ const MobileMenu = ({ isOpen, toggleMenu, logo }) => {
   return (
     <div
       id="mobileMenu"
-      className={`fixed inset-0 bg-white z-10 p-3 flex flex-col justify-between h-screen ${
+      className={`fixed inset-0 bg-white z-10 p-3 flex flex-col h-screen ${
         isOpen ? 'translate-y-0' : 'translate-y-full'
       }`}
       style={{ transition: 'none' }}

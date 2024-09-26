@@ -1,5 +1,5 @@
 import React from 'react';
-import incentiveImage from '../../assets/incentive/incentive.svg'; // Make sure this path is correct based on your file structure
+import incentiveImage from '../../assets/incentive/incentive.svg'; 
 
 const IncentiveSection = () => {
   return (
@@ -7,7 +7,7 @@ const IncentiveSection = () => {
       id="incentive"
       className="p-3 pt-8 pb-8 md:p-8 2xl:pb-16 bg-[#E8F1FF] lg:px-12 lg:py-20 2xl:py-24 2xl:px-[12rem]"
     >
-      <div className="flex flex-col 2xl:flex-row items-start gap-8 2xl:gap-16"> {/* Added 2xl:gap-16 */}
+      <div className="flex flex-col 2xl:flex-row items-start gap-8 2xl:gap-16"> 
         <div className="flex-shrink-0">
           <img
             src={incentiveImage}
@@ -17,13 +17,13 @@ const IncentiveSection = () => {
         </div>
 
         <div className="flex-grow">
-          <h2 className="text-blue-500 font-bold text-lg mb-2 lg:mb-4">Umecorn Incentive</h2>
+          <h2 className="text-blue-500 font-bold text-base md:text-lg lg:text-xl 2xl:text-2xl mb-2 lg:mb-4">Umecorn Incentive</h2>
 
           <h1 className="mb-2 text-[#00000A] font-bold 2xl:font-extrabold text-2xl md:text-3xl lg:text-[36px] 2xl:text-5xl lg:mb-4">
             Generate your Umecorn Social Score exclusively with us and receive benefits
           </h1>
 
-          <p className="text-[#212126] text-base lg:text-lg mb-5 md:text-lg lg:mb-6">
+          <p className="text-[#212126] text-base md:text-lg lg:text-xl 2xl:text-2xl mb-5 md:text-lg lg:mb-6">
             Umecorn aims to build the largest Social Scoring platform on the globe. To do that, it needs you. The more
             people and organisations that use our platform, the better we can optimise our tools with our Data team. The
             better we can optimise our tools, the more value we can add to job candidates and loan applicants all over

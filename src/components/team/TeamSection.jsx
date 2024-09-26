@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from './Modal'; 
 import jordanImage from '../../assets/team/jordan.png';
 import anowarImage from '../../assets/team/anwar bhai.png';
@@ -8,6 +8,7 @@ import drImage from '../../assets/team/dr.png';
 import faisalImage from '../../assets/team/faisal bhai.png';
 import dawnImage from '../../assets/team/dawn.png';
 import justinImage from '../../assets/team/justin.png';
+
 
 const teamMembers = [
   {
@@ -76,15 +77,18 @@ const teamMembers = [
   },
 ];
 
+
 const TeamSection = () => {
   const [activeModal, setActiveModal] = useState(null);
 
   const openModal = (modalId) => {
     setActiveModal(modalId);
+    document.body.style.overflow = 'hidden';  // Disable scrolling
   };
 
   const closeModal = () => {
     setActiveModal(null);
+    document.body.style.overflow = 'auto';    // Enable scrolling
   };
 
   const currentMember = teamMembers.find(member => member.modalId === activeModal);
@@ -119,17 +123,16 @@ const TeamSection = () => {
       {/* Modals */}
       {activeModal && (
         <Modal
-            key={currentMember.modalId}
-            id={currentMember.modalId}
-            image={currentMember.image}
-            name={currentMember.name}
-            title={currentMember.role}
-            description={currentMember.modalContent}
-            onClose={closeModal}
-            isVisible={!!activeModal}
+          key={currentMember.modalId}
+          id={currentMember.modalId}
+          image={currentMember.image}
+          name={currentMember.name}
+          title={currentMember.role}
+          description={currentMember.modalContent}
+          onClose={closeModal}
+          isVisible={!!activeModal}
         />
-    )}
-
+      )}
     </>
   );
 };
