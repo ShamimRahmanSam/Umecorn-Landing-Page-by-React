@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import textArea from '../../assets/contact/text area.png';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center bg-[#0A0B5C] px-3 pt-8 pb-8 md:pt-14 md:pb-14 lg:pt-[72px] 2xl:pb-[5.5rem]">
+    <section id="contact" className="flex flex-col items-center justify-center bg-[#0A0B5C] px-3 pt-8 pb-8 md:pt-14 md:pb-14 lg:pt-[72px] 2xl:pb-[5.5rem]">
       <h2 className="text-2xl font-bold text-center text-white mb-3 lg:mb-8 md:text-3xl lg:text-4xl 2xl:text-5xl">Contact Us</h2>
       <p className="text-center text-white mb-4 font-normal md:text-lg lg:text-xl md:px-10 lg:px-32 xl:px-[12rem] 2xl:px-[30rem]">
         In order to understand how our unique solution can help your business, please fill in this contact form and we will respond to you as soon as possible.
@@ -91,13 +92,20 @@ const ContactUs = () => {
             <label htmlFor="message" className="block text-sm font-normal text-[#45454D] md:pb-1">
               Message <span className="text-red-500">*</span>
             </label>
-            <textarea
-              id="message"
-              placeholder="Write your message here ..."
-              rows="5"
-              className="mt-1 block w-full h-[136px] py-2 px-4 border border-[#E4E4E5] rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base placeholder-[#CCCACA] resize-none"
-              onChange={handleInputChange}
-            ></textarea>
+            <div className="relative">
+              <textarea
+                id="message"
+                placeholder="Write your message here ..."
+                rows="5"
+                className="mt-1 block w-full h-[136px] py-2 px-4 border border-[#E4E4E5] rounded-xl shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-base placeholder-[#CCCACA] resize-none"
+                onChange={handleInputChange}
+              ></textarea>
+              <img
+                src={textArea}
+                alt="Text Area Decoration"
+                className="absolute bottom-[0.1rem] right-[0.1rem] w-4 h-4" 
+              />
+            </div>
           </div>
 
           <div className="pb-0 md:col-span-2 flex justify-center">

@@ -12,10 +12,8 @@ import Footer from './components/footer/Footer';
 
 const App = () => {
   useEffect(() => {
-    // Set the body class
     document.body.classList.add('scroll-smooth', 'bg-white', 'text-black');
 
-    // Cleanup function to remove classes on unmount
     return () => {
       document.body.classList.remove('scroll-smooth', 'bg-white', 'text-black');
     };

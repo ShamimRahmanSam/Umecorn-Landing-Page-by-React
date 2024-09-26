@@ -83,12 +83,12 @@ const TeamSection = () => {
 
   const openModal = (modalId) => {
     setActiveModal(modalId);
-    document.body.style.overflow = 'hidden';  // Disable scrolling
+    document.body.style.overflow = 'hidden';  
   };
 
   const closeModal = () => {
     setActiveModal(null);
-    document.body.style.overflow = 'auto';    // Enable scrolling
+    document.body.style.overflow = 'auto';    
   };
 
   const currentMember = teamMembers.find(member => member.modalId === activeModal);
@@ -120,7 +120,7 @@ const TeamSection = () => {
         </div>
       </section>
 
-      {/* Modals */}
+      
       {activeModal && (
         <Modal
           key={currentMember.modalId}

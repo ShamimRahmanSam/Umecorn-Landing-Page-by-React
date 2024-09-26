@@ -21,10 +21,10 @@ const Header = () => {
         event.preventDefault();
         const targetId = event.target.getAttribute('href').slice(1);
         const targetElement = document.getElementById(targetId);
-
+  
         if (targetElement) {
-          const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 80; 
-
+          const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 80;
+  
           window.scrollTo({
             top: offsetTop,
             behavior: 'smooth',
@@ -32,17 +32,18 @@ const Header = () => {
         }
       }
     };
-
+  
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', smoothScrollHandler);
     });
-
+  
     return () => {
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.removeEventListener('click', smoothScrollHandler);
       });
     };
   }, []);
+  
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -62,13 +63,19 @@ const Header = () => {
     setIsMobileMenuOpen((prev) => {
       if (!prev) {
         document.body.classList.add('no-scroll');
+        setLogo(secondLogoPath); 
       } else {
         document.body.classList.remove('no-scroll');
+        setLogo(isScrolled ? secondLogoPath : defaultLogo); 
       }
       return !prev;
     });
   };
-
+  
+  
+  
+  
+  
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
 
@@ -81,9 +88,9 @@ const Header = () => {
   return (
     <header
       id="mainHeader"
-      className={`fixed w-full top-0 left-0 z-50 py-4 md:py-3 lg:py-4 2xl:py-6 px-3 2xl:px-44 text-white transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen ? 'bg-white text-black' : 'bg-transparent text-white'
-      } ${isScrolled || (isMobileMenuOpen && window.innerWidth <= 768) ? 'border-b border-gray-300' : 'border-transparent'}`}
+      className={`fixed w-full top-0 left-0 z-50 py-4 md:py-3 lg:py-4 2xl:py-6 px-3 2xl:px-40 text-white transition-all duration-300 ${
+        isScrolled || isMobileMenuOpen ? 'bg-white text-black border-b border-gray-300' : 'bg-transparent text-white border-transparent'
+      }`}
     >
       <div className="flex justify-between items-center">
         <div className="flex items-center">
@@ -99,6 +106,8 @@ const Header = () => {
 
         <div className="flex items-center space-x-4 md:px-8">
           <a
+            href="#"
+            id="getStartedBtn" 
             className={`hidden md:block font-bold py-4 px-4 rounded-lg text-sm ${
               isScrolled ? 'bg-[#2F45FF] text-white' : 'bg-white text-[#2F45FF]'
             }`}
@@ -114,6 +123,7 @@ const Header = () => {
               <img src={burgerIcon} alt="Menu" className="w-6 h-6" />
             </button>
           </div>
+
         </div>
       </div>
 
