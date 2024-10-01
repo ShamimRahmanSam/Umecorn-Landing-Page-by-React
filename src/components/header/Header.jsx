@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import MobileMenu from './MobileMenu';
 import defaultLogo from '../../assets/header/Logo-Generic.svg';
-import secondLogoPath from '../../assets/header/Logo-Generic-2.svg';
+import secondLogo from '../../assets/header/Logo-Generic-2.svg';
 import menuIcon from '../../assets/header/menu.svg';
 import closeIcon from '../../assets/closeButton/close.svg';
-import menu2IconPath from '../../assets/header/menu-2.svg';
+import menu2Icon from '../../assets/header/menu-2.svg';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,8 +13,21 @@ const Header = () => {
   const [logo, setLogo] = useState(defaultLogo);
   const [burgerIcon, setBurgerIcon] = useState(menuIcon);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-
+  
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => {
+      if (!prev) {
+        document.body.classList.add('no-scroll');
+        setLogo(secondLogo); 
+      } else {
+        document.body.classList.remove('no-scroll');
+        setLogo(isScrolled ? secondLogo : defaultLogo); 
+      }
+      return !prev;
+    });
+  };
+  
+  
   useEffect(() => {
     const smoothScrollHandler = (event) => {
       if (event.target.tagName === 'A' && event.target.getAttribute('href').startsWith('#')) {
@@ -32,58 +45,35 @@ const Header = () => {
         }
       }
     };
+
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+        setTopBtnColor('#f7f7f7');
+        setLogo(secondLogo); 
+        setBurgerIcon(menu2Icon); 
+      } else {
+        setIsScrolled(false); 
+        setTopBtnColor('#2F45FF'); 
+        setLogo(defaultLogo); 
+        setBurgerIcon(menuIcon); 
+      }
+    };
   
+    window.addEventListener('scroll', handleScroll);
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', smoothScrollHandler);
     });
   
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.removeEventListener('click', smoothScrollHandler);
       });
+      document.body.classList.remove('no-scroll'); 
     };
   }, []);
   
-
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setIsScrolled(true);
-      setTopBtnColor('#f7f7f7');
-      setLogo(secondLogoPath);
-      setBurgerIcon(menu2IconPath);
-    } else {
-      setIsScrolled(false);
-      setTopBtnColor('#2F45FF');
-      setLogo(defaultLogo);
-      setBurgerIcon(menuIcon);
-    }
-  };
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prev) => {
-      if (!prev) {
-        document.body.classList.add('no-scroll');
-        setLogo(secondLogoPath); 
-      } else {
-        document.body.classList.remove('no-scroll');
-        setLogo(isScrolled ? secondLogoPath : defaultLogo); 
-      }
-      return !prev;
-    });
-  };
-  
-  
-  
-  
-  
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.body.classList.remove('no-scroll');
-    };
-  }, []);
 
   return (
     <header
