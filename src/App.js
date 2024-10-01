@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from './components/header/Header';
 import HeroSection from './components/heroSection/HeroSection';
 import AboutSection from './components/about/AboutSection';
@@ -9,18 +9,11 @@ import IncentiveSection from './components/incentive/IncentiveSection';
 import TeamSection from './components/team/TeamSection';
 import ContactUs from './components/contact/ContactUs';
 import Footer from './components/footer/Footer';
+import './index.css';  
 
 const App = () => {
-  useEffect(() => {
-    document.body.classList.add('scroll-smooth', 'bg-white', 'text-black');
-
-    return () => {
-      document.body.classList.remove('scroll-smooth', 'bg-white', 'text-black');
-    };
-  }, []);
-
   return (
-    <div className="App">
+    <div>
       <Header />
       <HeroSection />
       <AboutSection />

@@ -6,7 +6,7 @@ const Navbar = ({ isScrolled }) => {
       <a href="#home" className={`nav-link ${isScrolled ? 'text-black' : 'text-white'}`}>Home</a>
       <a href="#cases" className={`nav-link ${isScrolled ? 'text-black' : 'text-white'}`}>Cases</a>
       <a href="#team" className={`nav-link ${isScrolled ? 'text-black' : 'text-white'}`}>Team</a>
-      <a href="#contact" className={`nav-link ${isScrolled ? 'text-black' : 'text-white'}`}>Contact us</a> {/* No toggleMenu needed here */}
+      <a href="#contact" className={`nav-link ${isScrolled ? 'text-black' : 'text-white'}`}>Contact us</a> 
     </nav>
 
   );
