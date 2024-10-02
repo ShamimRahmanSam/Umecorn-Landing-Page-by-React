@@ -9,7 +9,7 @@ const MobileMenu = ({ isOpen, toggleMenu, logo }) => {
   return (
     <div
       id="mobileMenu"
-      className={`fixed inset-0 bg-white z-10 py-4 md:py-3 flex flex-col h-screen ${
+      className={`lg:hidden fixed inset-0 bg-white z-10 py-4 md:py-3 flex flex-col h-screen ${
         isOpen ? 'translate-y-0' : 'translate-y-full'
       }`}
       style={{ transition: 'none' }}
@@ -40,7 +40,7 @@ const MobileMenu = ({ isOpen, toggleMenu, logo }) => {
         </div>
       </nav>
 
-      <div className="mt-auto flex justify-center text-center items-center pb-6 sm:pb-8 w-full md:hidden">
+      <div className="mt-auto flex justify-center text-center items-center pb-6 sm:pb-8 w-full">
         <a
           href="#"
           id="getStartedBtn"

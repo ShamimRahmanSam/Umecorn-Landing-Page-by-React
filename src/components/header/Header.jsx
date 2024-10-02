@@ -36,41 +36,49 @@ const Header = () => {
         const targetElement = document.getElementById(targetId);
   
         if (targetElement) {
-          const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 80;
-  
+          const offsetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80;
+        
           window.scrollTo({
             top: offsetTop,
             behavior: 'smooth',
           });
-        }
-      }
-    };
-
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-        setTopBtnColor('#f7f7f7');
-        setLogo(secondLogo); 
-        setBurgerIcon(menu2Icon); 
-      } else {
-        setIsScrolled(false); 
-        setTopBtnColor('#2F45FF'); 
-        setLogo(defaultLogo); 
-        setBurgerIcon(menuIcon); 
+        }        
       }
     };
   
-    window.addEventListener('scroll', handleScroll);
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', smoothScrollHandler);
     });
   
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.removeEventListener('click', smoothScrollHandler);
       });
-      document.body.classList.remove('no-scroll'); 
+    };
+  }, []);
+  
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+      setTopBtnColor('#f7f7f7');
+      setLogo(secondLogo);
+      setBurgerIcon(menu2Icon);
+    } else {
+      setIsScrolled(false);
+      setTopBtnColor('#2F45FF');
+      setLogo(defaultLogo);
+      setBurgerIcon(menuIcon);
+    }
+  };
+
+  
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.classList.remove('no-scroll');
     };
   }, []);
   
