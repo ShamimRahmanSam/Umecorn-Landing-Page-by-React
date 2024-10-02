@@ -23,7 +23,7 @@ const IncentiveSection = () => {
             Generate your Umecorn Social Score exclusively with us and receive benefits
           </h1>
 
-          <p className="text-[#212126] sm:text-base md:text-lg lg:text-xl 2xl:text-2xl mb-5 md:text-lg lg:mb-6">
+          <p className="text-[#212126] sm:text-base md:text-lg lg:text-xl 2xl:text-2xl mb-5 lg:mb-6">
             Umecorn aims to build the largest Social Scoring platform on the globe. To do that, it needs you. The more
             people and organisations that use our platform, the better we can optimise our tools with our Data team. The
             better we can optimise our tools, the more value we can add to job candidates and loan applicants all over
